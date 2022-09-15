@@ -45,7 +45,7 @@ function install() #installs packages needed to draw the ascii banner
                                 ;;
                                 esac 
                     ;;
-                    b | B ) read -p "Press enter to continue --->"
+                    b | B ) echo ""
                     ;;
                     c |C ) exit
                     ;;
@@ -73,11 +73,11 @@ function mode() #Creates the game difficulty menu, assigning a value to modemod,
                         \n(c)Hard --->\c"
                 read ANSWER
                 case $ANSWER in
-                a | A ) modemod=$(($modemod-3)); echo ""; read -p "PLease press enter to continue --->"
+                a | A ) modemod=$(($modemod-3)); 
                 ;;
-                b | B ) echo ""; read -p  "Please press enter to continue --->"
+                b | B ) echo ""; 
                 ;;
-                c | C ) modemod=$(($modemod+3)); echo ""; read -p "Please press enter to continue --->"
+                c | C ) modemod=$(($modemod+3)); 
                 ;;
                 esac 
         }
@@ -142,7 +142,7 @@ function scumbagsteve()
                     \nBefore you can say Phew you hear Hey how old is your sister? 
                     \nIt's Scumbag Steve! Do you:
                     \n(a) Beat him with his flat billed hat
-                    \n(b) Give him Bad Luck Brian's lunch money in return for pasing to the next chamber --->\c"
+                    \n(b) Give him Bad Luck Brian's lunch money in return for passing to the next chamber --->\c"
             read ANSWER; roll; memeroll=$(($modemod+9))
             case $ANSWER in
             a | A ) if (($d20>$memeroll))
