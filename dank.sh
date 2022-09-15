@@ -44,7 +44,7 @@ function intro() #Creates the titlescreen menu and saves it to the function intr
         {
                 clear; banner; echo ""; echo ""
                 echo  -e "$name, Welcome to your digital nightmare, where you must traverse a labrynth of 
-                        \ndungeons where you must face off against the most infamous of memes.
+                        \ndungeons where you must face off against the most infamous of dank memes.
                         \nWill you be triumphant and emerge the newly crowned meme lord?
                         \nOr will your defeat be immortalized in the internet memedom for all to laugh at?
                         \nEvery decision you make, is decided by a 20 sided die roll.
@@ -107,7 +107,7 @@ function badluckbrian() #The rest of the functions defined are specific story se
                         read ANSWER; memeroll=$(($modemod+7)); roll
                         case $ANSWER in
                         a | A ) if (($d20>$memeroll))
-                                then clear; banner; echo ""; echo ""; echo "$name's roll: $d20 Bad Luck Brian's Roll: $memeroll"; echo ""
+                                then clear; banner; echo ""; echo ""; echo -e "$name's roll: $d20 \nBad Luck Brian's Roll: $memeroll"; echo ""; echo ""
                                         echo -e "Bad Luck Brian screamed in agonizing pain due to the forcefullness of your atomic wedgie
                                                 \nHe gave you the key to the next room and his lunch money! +2 modifier added!"
                                         mod=$(($mod+2))
@@ -120,13 +120,13 @@ function badluckbrian() #The rest of the functions defined are specific story se
                                 fi
                         ;;
                         b | B ) if (($d20>$memeroll))
-                                then clear; banner; echo ""; echo ""; echo -e "$name's roll: $d20 \nBad Luck Brian's roll: $memeroll"; echo ""
+                                then clear; banner; echo ""; echo ""; echo -e "$name's roll: $d20 \nBad Luck Brian's roll: $memeroll"; echo ""; echo ""
                                         echo -e "You easily punch poor Bad Luck Brian out cold. 
                                                 \nYou frisk him for the key to the next room and take his lunch money. +2 modifier added!"
                                         mod=$(($mod+2))
                                         echo ""
                                         read -p "Press enter to continue"
-                                else clear; gameover; echo ""; echo ""; echo -e "$name's roll: $d20 \nBad Luck Brian's roll: $memeroll"; echo ""
+                                else clear; gameover; echo ""; echo ""; echo -e "$name's roll: $d20 \nBad Luck Brian's roll: $memeroll"; echo ""; echo ""
                                         echo -e "You attempt to punch Bad Luck Brian, but his braces slice your hands open.
                                                 \n His name is Bad Luck Brian for a reason. You can't make his life worse!"
                                         exit
@@ -145,12 +145,12 @@ function scumbagsteve()
                 read ANSWER; roll; memeroll=$(($modemod+9))
                 case $ANSWER in
                 a | A ) if (($d20>$memeroll))
-                        then clear; banner; echo ""; echo ""; echo "$name's roll: $d20  Scumbag Steve's roll: $memeroll"; echo ""
+                        then clear; banner; echo ""; echo ""; echo -e "$name's roll: $d20 \nScumbag Steve's roll: $memeroll"; echo ""; echo ""
                                 echo -e "Scumbag Steve cries and swears to never ask for your sister again, 
                                         \nand gives you the key to the next chamber. You keep the hat +1 modifier!"
                                 mod=$(($mod+1)); echo ""
                                 read -p "Press enter to continue --->"
-                        else clear; gameover; echo ""; echo ""; echo "$name's roll: $d20  Scumbag Steve's roll: $memeroll"; echo ""
+                        else clear; gameover; echo ""; echo ""; echo -e "$name's roll: $d20 \nScumbag Steve's roll: $memeroll"; echo ""; echo ""
                                 echo "Scumbug steve beats you up, takes Bad Luck Brian's lunch money and his hat back!"
                                 exit
                         fi
@@ -180,13 +180,13 @@ function ducreux()
                 ;;
                 b | B ) roll; memeroll=$(($modemod+10))
                         if (($d20>$memeroll))
-                        then clear; banner; echo ""; echo ""; echo ""; echo "$name's roll: $d20  Ducreux's roll: $memeroll"; echo ""
+                        then clear; banner; echo ""; echo ""; echo ""; echo -e "$name's roll: $d20  \nDucreux's roll: $memeroll"; echo ""; echo ""
                                 echo -e "I have acquired four score and 19 problems, but a wench cannot be counted among them,
                                         \nsaid $name enthusastically to Deucreux!
                                         \nDucreux bows to you graciously accepting defeat, rewarding you with the key to the next chamber."
                                 echo ""
                                 read -p "Press enter to continue --->"
-                        else clear; gameover; echo ""; echo ""; echo "$name's roll: $d20  Ducreux's roll: $memeroll"; echo ""
+                        else clear; gameover; echo ""; echo ""; echo -e "$name's roll: $d20 \nDucreux's roll: $memeroll"; echo ""; echo ""
                                 echo "$name stammers like a dummy. Ducruex, not impressed, orders $name to be placed in Facebook jail."
                                 exit
                         fi
@@ -205,20 +205,20 @@ function disastergirl ()
                 roll; memeroll=$(($modemod+12))
                 case $ANSWER in
                 a | A ) if (($d20>$memeroll))
-                        then clear; banner; echo ""; echo ""; echo "$name's roll: $d20  Disaster Girl's roll: $memeroll"; echo ""
+                        then clear; banner; echo ""; echo ""; echo -e "$name's roll: $d20 \nDisaster Girl's roll: $memeroll"; echo ""; echo ""
                                 echo -e "$name extinguishes the fire as Disaster Girl is carried away screaming by CPS.
                                 \nShe dropped the key to the next chamber as well as her book of matches. +1 modifier rewarded!"
                                 echo ""; read -p "Press enter to continue --->"
-                        else clear; gameover; echo ""; echo ""; echo "$name's roll: $d20  Disaster Girl's roll: $memeroll"; echo ""
+                        else clear; gameover; echo ""; echo ""; echo -e "$name's roll: $d20 \nDisaster Girl's roll: $memeroll"; echo ""; echo ""
                                 echo "Disaster girl smiles as the flames consume you"
                                 exit
                         fi
                 ;;
                 b | B ) if (($d20>$memeroll))
-                        then clear; banner; echo ""; echo ""; echo "$name's roll: $d20  Disaster Girl's roll: $memeroll"; echo ""
+                        then clear; banner; echo ""; echo ""; echo -e "$name's roll: $d20 \nDisaster Girl's roll: $memeroll"; echo ""; echo ""
                                 echo "$name pushes her in and catches the key as she falls in and dashes to the next door"
                                 read -p "Press enter to continue --->"
-                        else clear; gameover; echo ""; echo ""; echo "$name's roll: $d20  Disaster Girl's roll: $memeroll"; echo ""
+                        else clear; gameover; echo ""; echo ""; echo -e "$name's roll: $d20 \nDisaster Girl's roll: $memeroll"; echo ""; echo ""
                                 echo "Disaster Girl smiles as the flames consume you"
                                 exit 
                         fi
@@ -236,21 +236,21 @@ function philosoraptor()
                 roll; memeroll=$(($modemod+13))
                 case $ANSWER in
                 a | A ) if (($d20>$memeroll))
-                        then clear; banner; echo ""; echo ""; echo "$name's roll: $d20  Philosoraptor's roll: $memeroll"; echo ""
+                        then clear; banner; echo ""; echo ""; echo -e "$name's roll: $d20 \nPhilosoraptor's roll: $memeroll"; echo ""; echo ""
                                 echo -e "If someone doesn't like ghosts, does that make them wraithist?
                                         \nYou slain Philosorapter and stole his claw and the key to the final chamber +5 modifier rewarded"
                                 mod=$(($mod+5))
                                 echo ""; read -p "Press enter to continue --->"
-                        else clear; gameover; echo ""; echo ""; echo "$name's roll: $d20  Philosoraptor's roll: $memeroll"; echo ""
+                        else clear; gameover; echo ""; echo ""; echo -e "$name's roll: $d20 \nPhilosoraptor's roll: $memeroll"; echo ""; echo ""
                                 echo "If the Philosorapter ate $name for lunch, does that mean he ate American?"
                                 exit
                         fi 
                 ;;
                 b | B ) if (($d20>$memeroll))
-                        then clear; banner; echo ""; echo ""; echo "$name's roll: $d20  Philosoraptor's roll: $memeroll"; echo ""
+                        then clear; banner; echo ""; echo ""; echo -e "$name's roll: $d20 \nPhilosoraptor's roll: $memeroll"; echo ""; echo ""
                                 echo "Philosorapter was delighted by the treat he was given, and gives $name the key to the final chamber."
                                 read -p "Press enter to continue --->"
-                        else clear; gameover; echo ""; echo ""; echo "$name's roll: $d20  Philosoraptor's roll: $memeroll"; echo ""
+                        else clear; gameover; echo ""; echo ""; echo -e "$name's roll: $d20 \nPhilosoraptor's roll: $memeroll"; echo ""; echo ""
                                 echo "If the Philosorapter ate $name for lunch, does that mean he ate American?"
                                 exit
                         fi
@@ -270,11 +270,10 @@ function willsmith()
                 roll; memeroll=$(($modemod+15))
                 case $ANSWER in
                 a | A ) if (($d20>$memeroll))
-                        then clear; banner; echo ""; echo ""; echo "$name's roll: $d20  Will Smith's roll: $memeroll"; echo ""
+                        then clear; banner; echo ""; echo ""; echo -e "$name's roll: $d20 \nWill Smith's roll: $memeroll"; echo ""; echo ""
                                 echo "$name snatched Will's oscar and beat him with it!"
                                 echo ""; read -p "Press enter to continue --->"
-                        else clear; gameover; echo ""; echo ""; echo "$name's roll: $d20  Will Smith's roll: $memeroll"; echo ""
-                                echo "Will slaps $name into next year!"
+                        else clear; gameover; echo ""; echo ""; echo -e "$name's roll: $d20 \nWill Smith's roll: $memeroll"; echo ""; echo ""
                                 exit
                         fi
                 ;;
