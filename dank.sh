@@ -23,46 +23,46 @@
 
 name=$(whoami) #stores username to the variable $name
 function install() #installs packages needed to draw the ascii banner
-                {
-                    clear; echo -e "Dank D&D requires the installation of dependencies.
-                                \n(a)Install dependencies
-                                \n(b)I already have them installed
-                                \n(c)I do not wish to install them"
-                    read ANSWER
-                    case $ANSWER in
-                    a | A ) clear
-                                echo -e 'Please select the appropriate package manager for your distribution:
-                                    \n (a) APT
-                                    \n (b) DNF 
-                                    \n (c) PACMAN --->\c'
-                                read ANSWER
-                                case $ANSWER in
-                                a | A ) sudo apt update && sudo apt upgrade -y; sudo apt install toilet -y; sudo apt install boxes -y; sudo apt install lolcat -y
-                                ;;
-                                b | B ) sudo dnf update && sudo dnf upgrade -y; sudo dnf install toilet -y; sudo dnf install boxes -y; sudo apt install lolcat -y
-                                ;;
-                                c | C ) sudo pacman -Syy && sudo pacman -Syu -y; -sudo pacman -s toilet -y; sudo pacman -s boxes -y; sudo pacman -s lolcat -y 
-                                ;;
-                                esac 
-                    ;;
-                    b | B ) echo ""
-                    ;;
-                    c |C ) exit
-                    ;;
-                    esac     
-                }          
+        {
+                clear; echo -e "Dank D&D requires the installation of dependencies.
+                        \n(a)Install dependencies
+                        \n(b)I already have them installed
+                        \n(c)I do not wish to install them"
+                read ANSWER
+                case $ANSWER in
+                a | A ) clear
+                        echo -e 'Please select the appropriate package manager for your distribution:
+                                \n (a) APT
+                                \n (b) DNF 
+                                \n (c) PACMAN --->\c'
+                        read ANSWER
+                        case $ANSWER in
+                        a | A ) sudo apt update && sudo apt upgrade -y; sudo apt install toilet -y; sudo apt install boxes -y; sudo apt install lolcat -y
+                        ;;
+                        b | B ) sudo dnf update && sudo dnf upgrade -y; sudo dnf install toilet -y; sudo dnf install boxes -y; sudo apt install lolcat -y
+                        ;;
+                        c | C ) sudo pacman -Syy && sudo pacman -Syu -y; -sudo pacman -s toilet -y; sudo pacman -s boxes -y; sudo pacman -s lolcat -y 
+                        ;;
+                        esac 
+                ;;
+                b | B ) echo ""
+                ;;
+                c |C ) exit
+                ;;
+                esac     
+        }          
 function banner() 
-                { 
-                    toilet 'Dank D&D' | boxes | lolcat     #this function draws the title ASCII banner
-                } 
+        { 
+                toilet 'Dank D&D' | boxes | lolcat     #this function draws the title ASCII banner
+        } 
 function gameover()
-                {
-                    toilet 'Game Over' | boxes | lolcat  #This function draws the ascii game over banner
-                }                
+        {
+                toilet 'Game Over' | boxes | lolcat  #This function draws the ascii game over banner
+        }                
 function memelord()
-                {
-                    clear; toilet -t 'Victory!' | boxes | lolcat; toilet All Hail; toilet Meme Lord; toilet $name #this function draws the ascii victory banner
-                }
+        {
+                clear; toilet -t 'Victory!' | boxes | lolcat; toilet All Hail; toilet Meme Lord; toilet $name #this function draws the ascii victory banner
+        }
 declare -i mod=0 #creates the modifer variable and sets it with a starting value of 0
 declare -i modemod=0 #creates the modemod variable and starts it with a value of 0
 function mode() #Creates the game difficulty menu, assigning a value to modemod, and saving it to the function mode
@@ -82,122 +82,122 @@ function mode() #Creates the game difficulty menu, assigning a value to modemod,
                 esac 
         }
 function roll()
-            {
+        {
                 d20=$(($RANDOM%20+1)) #creates a function for the 20 sided die roll and adds any additional modifiers
                 d20=$(($d20+$mod))
-            }
+        }
 function intro() #Creates the titlescreen menu and saves it to the function intro
         {
-            clear; banner; echo ""; echo ""
-            echo  -e "$name, Welcome to your digital nightmare, where you must traverse a labrynth of 
-                    \ndungeons where you must face off against the most infamous of memes.
-                    \nWill you be triumphant and emerge the newly crowned meme lord?
-                    \nOr will your defeat be immortalized in the internet memedom for all to laugh at?
-                    \nEvery decision you make, is decided by a 20 sided die roll.
-                    \nSome concluding interactions may result in gaining additional modifiers for your dice rolls"
-            echo ""
-            read -p "Press enter to continue --->"       
+                clear; banner; echo ""; echo ""
+                echo  -e "$name, Welcome to your digital nightmare, where you must traverse a labrynth of 
+                        \ndungeons where you must face off against the most infamous of memes.
+                        \nWill you be triumphant and emerge the newly crowned meme lord?
+                        \nOr will your defeat be immortalized in the internet memedom for all to laugh at?
+                        \nEvery decision you make, is decided by a 20 sided die roll.
+                        \nSome concluding interactions may result in gaining additional modifiers for your dice rolls"
+                echo ""
+                read -p "Press enter to continue --->"       
         }
 function badluckbrian() #The rest of the functions defined are specific story sequences surrounding a single meme character
         {
-            clear; banner; echo ""; echo ""
-            echo -e "You enter the first room of the digital labrynth of meme terror and hear terrible geeky laughter
-                    \nYour first oponent is none other than Bad Luck Brian! Do you:
-                    \n(a) Give him an atomic wedgie
-                    \n(b) Punch him in the face --->\c"
-                    read ANSWER; memeroll=$(($modemod+7)); roll
-                    case $ANSWER in
-                    a | A ) if (($d20>$memeroll))
-                            then clear; banner; echo ""; echo ""; echo "$name's roll: $d20 Bad Luck Brian's Roll: $memeroll"; echo ""
-                                echo -e "Bad Luck Brian screamed in agonizing pain due to the forcefullness of your atomic wedgie
-                                        \nHe gave you the key to the next room and his lunch money! +2 modifier added!"
-                                mod=$(($mod+2))
-                                echo ""
-                                read -p "Press enter to continue --->"
-                            else clear; gameover; echo ""; echo ""; echo "$name's roll: $d20 Bad Luck Brian's Roll: $memeroll"; echo ""
-                                echo -e "There isn't anything you can do to Bad Luck Brian to make his life worse
-                                        \nor his name wouldn't be Bad Luck Brian"
-                                exit
-                            fi
-                    ;;
-                    b | B ) if (($d20>$memeroll))
-                            then clear; banner; echo ""; echo ""; echo -e "$name's roll: $d20 \nBad Luck Brian's roll: $memeroll"; echo ""
-                                echo -e "You easily punch poor Bad Luck Brian out cold. 
-                                        \nYou frisk him for the key to the next room and take his lunch money. +2 modifier added!"
-                                mod=$(($mod+2))
-                                echo ""
-                                read -p "Press enter to continue"
-                            else clear; gameover; echo ""; echo ""; echo -e "$name's roll: $d20 \nBad Luck Brian's roll: $memeroll"; echo ""
-                                echo -e "You attempt to punch Bad Luck Brian, but his braces slice your hands open.
-                                        \n His name is Bad Luck Brian for a reason. You can't make his life worse!"
-                                exit
-                            fi
-                    ;;
-                    esac
+                clear; banner; echo ""; echo ""
+                echo -e "You enter the first room of the digital labrynth of meme terror and hear terrible geeky laughter
+                        \nYour first oponent is none other than Bad Luck Brian! Do you:
+                        \n(a) Give him an atomic wedgie
+                        \n(b) Punch him in the face --->\c"
+                        read ANSWER; memeroll=$(($modemod+7)); roll
+                        case $ANSWER in
+                        a | A ) if (($d20>$memeroll))
+                                then clear; banner; echo ""; echo ""; echo "$name's roll: $d20 Bad Luck Brian's Roll: $memeroll"; echo ""
+                                        echo -e "Bad Luck Brian screamed in agonizing pain due to the forcefullness of your atomic wedgie
+                                                \nHe gave you the key to the next room and his lunch money! +2 modifier added!"
+                                        mod=$(($mod+2))
+                                        echo ""
+                                        read -p "Press enter to continue --->"
+                                else clear; gameover; echo ""; echo ""; echo "$name's roll: $d20 Bad Luck Brian's Roll: $memeroll"; echo ""
+                                        echo -e "There isn't anything you can do to Bad Luck Brian to make his life worse
+                                                \nor his name wouldn't be Bad Luck Brian"
+                                        exit
+                                fi
+                        ;;
+                        b | B ) if (($d20>$memeroll))
+                                then clear; banner; echo ""; echo ""; echo -e "$name's roll: $d20 \nBad Luck Brian's roll: $memeroll"; echo ""
+                                        echo -e "You easily punch poor Bad Luck Brian out cold. 
+                                                \nYou frisk him for the key to the next room and take his lunch money. +2 modifier added!"
+                                        mod=$(($mod+2))
+                                        echo ""
+                                        read -p "Press enter to continue"
+                                else clear; gameover; echo ""; echo ""; echo -e "$name's roll: $d20 \nBad Luck Brian's roll: $memeroll"; echo ""
+                                        echo -e "You attempt to punch Bad Luck Brian, but his braces slice your hands open.
+                                                \n His name is Bad Luck Brian for a reason. You can't make his life worse!"
+                                        exit
+                                fi
+                        ;;
+                        esac
         }
 function scumbagsteve() 
         {
-            roll; clear; banner; echo ""; echo ""
-            echo -e "You enter the next room and it stanks like a can of axe body spray. 
-                    \nBefore you can say Phew you hear Hey how old is your sister? 
-                    \nIt's Scumbag Steve! Do you:
-                    \n(a) Beat him with his flat billed hat
-                    \n(b) Give him Bad Luck Brian's lunch money in return for passing to the next chamber --->\c"
-            read ANSWER; roll; memeroll=$(($modemod+9))
-            case $ANSWER in
-            a | A ) if (($d20>$memeroll))
-                    then clear; banner; echo ""; echo ""; echo "$name's roll: $d20  Scumbag Steve's roll: $memeroll"; echo ""
-                        echo -e "Scumbag Steve cries and swears to never ask for your sister again, 
-                                \nand gives you the key to the next chamber. You keep the hat +1 modifier!"
-                        mod=$(($mod+1)); echo ""
-                        read -p "Press enter to continue --->"
-                    else clear; gameover; echo ""; echo ""; echo "$name's roll: $d20  Scumbag Steve's roll: $memeroll"; echo ""
-                        echo "Scumbug steve beats you up, takes Bad Luck Brian's lunch money and his hat back!"
+                roll; clear; banner; echo ""; echo ""
+                echo -e "You enter the next room and it stanks like a can of axe body spray. 
+                        \nBefore you can say Phew you hear Hey how old is your sister? 
+                        \nIt's Scumbag Steve! Do you:
+                        \n(a) Beat him with his flat billed hat
+                        \n(b) Give him Bad Luck Brian's lunch money in return for passing to the next chamber --->\c"
+                read ANSWER; roll; memeroll=$(($modemod+9))
+                case $ANSWER in
+                a | A ) if (($d20>$memeroll))
+                        then clear; banner; echo ""; echo ""; echo "$name's roll: $d20  Scumbag Steve's roll: $memeroll"; echo ""
+                                echo -e "Scumbag Steve cries and swears to never ask for your sister again, 
+                                        \nand gives you the key to the next chamber. You keep the hat +1 modifier!"
+                                mod=$(($mod+1)); echo ""
+                                read -p "Press enter to continue --->"
+                        else clear; gameover; echo ""; echo ""; echo "$name's roll: $d20  Scumbag Steve's roll: $memeroll"; echo ""
+                                echo "Scumbug steve beats you up, takes Bad Luck Brian's lunch money and his hat back!"
+                                exit
+                        fi
+                ;;
+                b | B ) clear; gameover; echo ""; echo ""; echo "Instant Defeat! Not a big brain play!"; echo ""
+                        echo -e "Scumbag Steve agrees to trade, takes Bad Lunch Brian's lunch money and sucker punches you.
+                                \nNever trust a scumbag!"
                         exit
-                    fi
-            ;;
-            b | B ) clear; gameover; echo ""; echo ""; echo "Instant Defeat! Not a big brain play!"; echo ""
-                    echo -e "Scumbag Steve agrees to trade, takes Bad Lunch Brian's lunch money and sucker punches you.
-                            \nNever trust a scumbag!"
-                    exit
-            ;;
-            esac 
+                ;;
+                esac 
         }
 function ducreux()
         {
-            clear; banner; echo ""; echo ""
-            echo -e "Upon entering the next chamber, you are greeted by a talking painting with a thick European accent.
-                    \nDisregard females, acquire currency! The painting says to you. It's none other than the famous 
-                    \nself portrait of 18th century French artist Jospeh Ducreux!
-                    \n(a) Douse the painting in paint thinner
-                    \n(b) Out-meme Ducreux --->\c"
-            read ANSWER
-            case $ANSWER in
-            a | A ) clear; banner; echo ""; echo ""; echo "Instant victory for a big brain play"; echo ""
-                    echo -e "Paint runs off the canvas and pools on the ground at your feet,
-                            \nleaving behind the key to the next chamber"
-                    echo ""
-                    read -p "Press enter to continue --->"
-            ;;
-            b | B ) roll; memeroll=$(($modemod+10))
-                    if (($d20>$memeroll))
-                    then clear; banner; echo ""; echo ""; echo ""; echo "$name's roll: $d20  Ducreux's roll: $memeroll"; echo ""
-                        echo -e "I have acquired four score and 19 problems, but a wench cannot be counted among them,
-                                \nsaid $name enthusastically to Deucreux!
-                                \nDucreux bows to you graciously accepting defeat, rewarding you with the key to the next chamber."
+                clear; banner; echo ""; echo ""
+                echo -e "Upon entering the next chamber, you are greeted by a talking painting with a thick European accent.
+                        \nDisregard females, acquire currency! The painting says to you. It's none other than the famous 
+                        \nself portrait of 18th century French artist Jospeh Ducreux!
+                        \n(a) Douse the painting in paint thinner
+                        \n(b) Out-meme Ducreux --->\c"
+                read ANSWER
+                case $ANSWER in
+                a | A ) clear; banner; echo ""; echo ""; echo "Instant victory for a big brain play"; echo ""
+                        echo -e "Paint runs off the canvas and pools on the ground at your feet,
+                                \nleaving behind the key to the next chamber"
+                        echo ""
+                        read -p "Press enter to continue --->"
+                ;;
+                b | B ) roll; memeroll=$(($modemod+10))
+                        if (($d20>$memeroll))
+                        then clear; banner; echo ""; echo ""; echo ""; echo "$name's roll: $d20  Ducreux's roll: $memeroll"; echo ""
+                                echo -e "I have acquired four score and 19 problems, but a wench cannot be counted among them,
+                                        \nsaid $name enthusastically to Deucreux!
+                                        \nDucreux bows to you graciously accepting defeat, rewarding you with the key to the next chamber."
                                 echo ""
                                 read -p "Press enter to continue --->"
-                    else clear; gameover; echo ""; echo ""; echo "$name's roll: $d20  Ducreux's roll: $memeroll"; echo ""
-                        echo "$name stammers like a dummy. Ducruex, not impressed, orders $name to be placed in Facebook jail."
-                        exit
-                    fi
-            ;;
-            esac            
+                        else clear; gameover; echo ""; echo ""; echo "$name's roll: $d20  Ducreux's roll: $memeroll"; echo ""
+                                echo "$name stammers like a dummy. Ducruex, not impressed, orders $name to be placed in Facebook jail."
+                                exit
+                        fi
+                ;;
+                esac            
         }
 function disastergirl ()
         {
-            clear; banner; echo ""; echo ""
-            echo -e "In the next chamber, the walls are covered in flames, and only a single creepy little girl
+                clear; banner; echo ""; echo ""
+                echo -e "In the next chamber, the walls are covered in flames, and only a single creepy little girl
                         \nstands in the center of the chamber with a devilish smirk on her face.
                         \nIt's Disaster Girl!
                         \n(a)Put out the fire and call CPS
