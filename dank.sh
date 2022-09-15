@@ -24,7 +24,7 @@
 name=$(whoami) #stores username to the variable $name
 function install() #installs packages needed to draw the ascii banner
                 {
-                    echo -e "Dank D&D requires the installation of dependencies.
+                    clear; echo -e "Dank D&D requires the installation of dependencies.
                                 \n(a)Install dependencies
                                 \n(b)I already have them installed
                                 \n(c)I do not wish to install them"
@@ -241,7 +241,7 @@ function philosoraptor()
                                 echo -e "If someone doesn't like ghosts, does that make them wraithist?
                                         \nYou slain Philosorapter and stole his claw and the key to the final chamber +5 modifier rewarded"
                                 mod=$(($mod+5))
-                                read -p "Press enter to continue --->"
+                                echo ""; read -p "Press enter to continue --->"
                         else clear; gameover; echo ""; echo ""; echo "$name's roll: $d20  Philosoraptor's roll: $memeroll"; echo ""
                                 echo "If the Philosorapter ate $name for lunch, does that mean he ate American?"
                                 exit
