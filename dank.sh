@@ -22,6 +22,52 @@
 #Declare variables and functions
 
 name=$(whoami) #stores username to the variable $name
+declare -i mod=0 #creates the modifer variable and sets it with a starting value of 0
+declare -i modemod=0 #creates the modemod variable and starts it with a value of 0
+function roll()
+        {
+                d20=$(($RANDOM%20+1)); d20=$(($d20+$mod)) #creates a function for the 20 sided die roll and adds any additional modifiers
+        }
+function banner() 
+        { 
+                toilet 'Dank D&D' | boxes | lolcat     #this function draws the title ASCII banner
+        } 
+function gameover()
+        {
+                toilet 'Game Over' | boxes | lolcat  #This function draws the ascii game over banner
+        }                
+function memelord()
+        {
+                clear; toilet -t 'Victory!' | boxes | lolcat; toilet All Hail; toilet Meme Lord; toilet $name #this function draws the ascii victory banner
+        }        
+function intro() #Creates the titlescreen menu and saves it to the function intro
+        {
+                clear; banner; echo ""; echo ""
+                echo  -e "$name, Welcome to your digital nightmare, where you must traverse a labrynth of 
+                        \ndungeons where you must face off against the most infamous of memes.
+                        \nWill you be triumphant and emerge the newly crowned meme lord?
+                        \nOr will your defeat be immortalized in the internet memedom for all to laugh at?
+                        \nEvery decision you make, is decided by a 20 sided die roll.
+                        \nSome concluding interactions may result in gaining additional modifiers for your dice rolls"
+                echo ""
+                read -p "Press enter to continue --->"       
+        }
+function mode() #Creates the game difficulty menu, assigning a value to modemod, and saving it to the function mode
+        {
+                clear; banner; echo ""; echo ""; echo -e "$name, please choose a difficulty mode:
+                        \n(a)Easy
+                        \n(b)Normal
+                        \n(c)Hard --->\c"
+                read ANSWER
+                case $ANSWER in
+                a | A ) modemod=$(($modemod-3)); 
+                ;;
+                b | B ) echo "" 
+                ;;
+                c | C ) modemod=$(($modemod+3)); 
+                ;;
+                esac 
+        }        
 function install() #installs packages needed to draw the ascii banner
         {
                 clear; echo -e "Dank D&D requires the installation of dependencies.
@@ -51,53 +97,6 @@ function install() #installs packages needed to draw the ascii banner
                 ;;
                 esac     
         }          
-function banner() 
-        { 
-                toilet 'Dank D&D' | boxes | lolcat     #this function draws the title ASCII banner
-        } 
-function gameover()
-        {
-                toilet 'Game Over' | boxes | lolcat  #This function draws the ascii game over banner
-        }                
-function memelord()
-        {
-                clear; toilet -t 'Victory!' | boxes | lolcat; toilet All Hail; toilet Meme Lord; toilet $name #this function draws the ascii victory banner
-        }
-declare -i mod=0 #creates the modifer variable and sets it with a starting value of 0
-declare -i modemod=0 #creates the modemod variable and starts it with a value of 0
-function mode() #Creates the game difficulty menu, assigning a value to modemod, and saving it to the function mode
-        {
-                clear; banner; echo ""; echo ""; echo -e "$name, please choose a difficulty mode:
-                        \n(a)Easy
-                        \n(b)Normal
-                        \n(c)Hard --->\c"
-                read ANSWER
-                case $ANSWER in
-                a | A ) modemod=$(($modemod-3)); 
-                ;;
-                b | B ) echo ""; 
-                ;;
-                c | C ) modemod=$(($modemod+3)); 
-                ;;
-                esac 
-        }
-function roll()
-        {
-                d20=$(($RANDOM%20+1)) #creates a function for the 20 sided die roll and adds any additional modifiers
-                d20=$(($d20+$mod))
-        }
-function intro() #Creates the titlescreen menu and saves it to the function intro
-        {
-                clear; banner; echo ""; echo ""
-                echo  -e "$name, Welcome to your digital nightmare, where you must traverse a labrynth of 
-                        \ndungeons where you must face off against the most infamous of memes.
-                        \nWill you be triumphant and emerge the newly crowned meme lord?
-                        \nOr will your defeat be immortalized in the internet memedom for all to laugh at?
-                        \nEvery decision you make, is decided by a 20 sided die roll.
-                        \nSome concluding interactions may result in gaining additional modifiers for your dice rolls"
-                echo ""
-                read -p "Press enter to continue --->"       
-        }
 function badluckbrian() #The rest of the functions defined are specific story sequences surrounding a single meme character
         {
                 clear; banner; echo ""; echo ""
