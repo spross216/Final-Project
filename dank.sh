@@ -61,13 +61,13 @@ function gameover()
                 }                
 function memelord()
                 {
-                    toilet -t 'Victory!' | boxes | lolcat; toilet All Hail; toilet Meme Lord; toilet $name #this function draws the ascii victory banner
+                    clear; toilet -t 'Victory!' | boxes | lolcat; toilet All Hail; toilet Meme Lord; toilet $name #this function draws the ascii victory banner
                 }
 declare -i mod=0 #creates the modifer variable and sets it with a starting value of 0
 declare -i modemod=0 #creates the modemod variable and starts it with a value of 0
 function mode() #Creates the game difficulty menu, assigning a value to modemod, and saving it to the function mode
         {
-                echo -e "$name, please choose a difficulty mode:
+                clear; banner; echo ""; echo ""; echo -e "$name, please choose a difficulty mode:
                         \n(a)Easy
                         \n(b)Normal
                         \n(c)Hard --->\c"
@@ -167,15 +167,15 @@ function ducreux()
         {
             clear; banner; echo ""; echo ""
             echo -e "Upon entering the next chamber, you are greeted by a talking painting with a thick European accent.
-                    \rDisregard females, acquire currency! The painting says to you...It's none other than the famous 
-                    \r self portrait of 18th century French artist Jospeh Ducreux!
-                    \r (a) Douse the painting in paint thinner
-                    \r (b) Out-meme Ducreux --->\c"
+                    \nDisregard females, acquire currency! The painting says to you. It's none other than the famous 
+                    \nself portrait of 18th century French artist Jospeh Ducreux!
+                    \n(a) Douse the painting in paint thinner
+                    \n(b) Out-meme Ducreux --->\c"
             read ANSWER
             case $ANSWER in
             a | A ) clear; banner; echo ""; echo ""; echo "Instant victory for a big brain play"; echo ""
                     echo -e "Paint runs off the canvas and pools on the ground at your feet,
-                            \rleaving behind the key to the next chamber"
+                            \nleaving behind the key to the next chamber"
                     echo ""
                     read -p "Press enter to continue --->"
             ;;
@@ -199,13 +199,13 @@ function disastergirl ()
             clear; banner; echo ""; echo ""
             echo -e "In the next chamber, the walls are covered in flames, and only a single creepy little girl
                         \nstands in the center of the chamber with a devilish smirk on her face.
-                        \n It's Disaster Girl!
+                        \nIt's Disaster Girl!
                         \n(a)Put out the fire and call CPS
                         \n(b)She's a demon, push her in! --->\c"
                 read ANSWER
                 roll; memeroll=$(($modemod+12))
                 case $ANSWER in
-                a | A ) if (($D20>$memeroll))
+                a | A ) if (($d20>$memeroll))
                         then clear; banner; echo ""; echo ""; echo "$name's roll: $d20  Disaster Girl's roll: $memeroll"; echo ""
                                 echo -e "$name extinguishes the fire as Disaster Girl is carried away screaming by CPS.
                                 \nShe dropped the key to the next chamber as well as her book of matches. +1 modifier rewarded!"
@@ -273,7 +273,7 @@ function willsmith()
                 a | A ) if (($d20>$memeroll))
                         then clear; banner; echo ""; echo ""; echo "$name's roll: $d20  Will Smith's roll: $memeroll"; echo ""
                                 echo "$name snatched Will's oscar and beat him with it!"
-                                read -p "Press enter to continue --->"
+                                echo ""; read -p "Press enter to continue --->"
                         else clear; gameover; echo ""; echo ""; echo "$name's roll: $d20  Will Smith's roll: $memeroll"; echo ""
                                 echo "Will slaps $name into next year!"
                                 exit
