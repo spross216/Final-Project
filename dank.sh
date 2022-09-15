@@ -73,11 +73,11 @@ function mode() #Creates the game difficulty menu, assigning a value to modemod,
                         \n(c)Hard --->\c"
                 read ANSWER
                 case $ANSWER in
-                a | A ) modemod=$(($modemod-3)); read -p "PLease press enter to continue --->"
+                a | A ) modemod=$(($modemod-3)); echo ""; read -p "PLease press enter to continue --->"
                 ;;
-                b | B ) read -p  "Please press enter to continue --->"
+                b | B ) echo ""; read -p  "Please press enter to continue --->"
                 ;;
-                c | C ) modemod=$(($modemod+3)); read -p "Please press enter to continue --->"
+                c | C ) modemod=$(($modemod+3)); echo ""; read -p "Please press enter to continue --->"
                 ;;
                 esac 
         }
@@ -209,7 +209,7 @@ function disastergirl ()
                         then clear; banner; echo ""; echo ""; echo "$name's roll: $d20  Disaster Girl's roll: $memeroll"; echo ""
                                 echo -e "$name extinguishes the fire as Disaster Girl is carried away screaming by CPS.
                                 \nShe dropped the key to the next chamber as well as her book of matches. +1 modifier rewarded!"
-                                read -p "Press enter to continue --->"
+                                echo ""; read -p "Press enter to continue --->"
                         else clear; gameover; echo ""; echo ""; echo "$name's roll: $d20  Disaster Girl's roll: $memeroll"; echo ""
                                 echo "Disaster girl smiles as the flames consume you"
                                 exit
