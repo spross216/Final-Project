@@ -17,6 +17,10 @@
 # Some if/then constructs will be resolved using a simulated 20 sided die popularized by dungeons and dragons.    #
 #-----------------------------------------------------------------------------------------------------------------#
 
+
+
+
+
 #                                        Declare variables and functions
 
 name=$(whoami) #                      stores username to the variable $name
@@ -61,16 +65,20 @@ function intro() #          Creates the titlescreen menu and saves it to the fun
         {
                 clear 
                 banner 
-                echo ""; 
+                echo "" 
                 echo ""
-                echo  -e "$name, Welcome to your digital nightmare, where you must traverse a labrynth of 
+                echo -e "$name, Welcome to your digital nightmare, where you must traverse a labrynth of 
                         \ndungeons where you must face off against the most infamous of dank memes.
                         \nWill you be triumphant and emerge the newly crowned meme lord?
                         \nOr will your defeat be immortalized in the internet memedom for all to laugh at?
                         \nEvery decision you make, is decided by a 20 sided die roll.
                         \nSome concluding interactions may result in gaining additional modifiers for your dice rolls"
                 echo ""
-                read -p "Press enter to continue --->"       
+                read -p "Press enter to continue"     
+                        
+                
+                
+       
         }
 
 
@@ -144,7 +152,7 @@ function badluckbrian() #               Character specific functions for the sto
                 echo ""
                 echo ""
                 echo -e "You enter the first room of the digital labrynth of meme terror 
-                        and hear terrible geeky laughter
+                        \nand hear terrible geeky laughter
                         \nYour first oponent is none other than Bad Luck Brian! Do you:
                         \n(a) Give him an atomic wedgie
                         \n(b) Punch him in the face --->\c"
@@ -157,10 +165,12 @@ function badluckbrian() #               Character specific functions for the sto
                                 banner
                                 echo ""
                                 echo ""
-                                echo -e "$name's roll: $d20 \nBad Luck Brian's Roll: $memeroll"; echo ""; echo ""
+                                echo -e "$name's roll: $d20 \nBad Luck Brian's Roll: $memeroll"; 
+                                echo "" 
+                                echo ""
                                 echo -e "Bad Luck Brian screamed in agonizing pain due to the forcefullness of your 
-                                        atomic wedgie
-                                        \nHe gave you the key to the next room and his lunch money! +2 modifier added!"
+                                        \natomic wedgie He gave you the key to the next room and his lunch money!
+                                        \n +2 modifier added!"
                                 mod=$(($mod+2))
                                 echo ""
                                 read -p "Press enter to continue --->"
@@ -183,8 +193,8 @@ function badluckbrian() #               Character specific functions for the sto
                                 echo ""
                                 echo ""
                                 echo -e "You easily punch poor Bad Luck Brian out cold. 
-                                        \nYou frisk him for the key to the next room and take his lunch money. +2 modifier 
-                                        added!"
+                                        \nYou frisk him for the key to the next room and take his lunch money. 
+                                        \n+2 modifier added!"
                                 mod=$(($mod+2))
                                 echo ""
                                 read -p "Press enter to continue"
@@ -216,7 +226,7 @@ function scumbagsteve()
                         \nIt's Scumbag Steve! Do you:
                         \n(a) Beat him with his flat billed hat
                         \n(b) Give him Bad Luck Brian's lunch money in return for passing to 
-                        the next chamber --->\c"
+                        \nthe next chamber --->\c"
                 read ANSWER
                 roll
                 memeroll=$(($modemod+9))
@@ -230,7 +240,8 @@ function scumbagsteve()
                                 echo ""
                                 echo ""
                                 echo -e "Scumbag Steve cries and swears to never ask for your sister again, 
-                                        \nand gives you the key to the next chamber. You keep the hat +1 modifier!"
+                                        \nand gives you the key to the next chamber. You keep the hat 
+                                        \n+1 modifier!"
                                 mod=$(($mod+1))
                                 echo ""
                                 read -p "Press enter to continue --->"
@@ -267,9 +278,9 @@ function ducreux()
                 echo "" 
                 echo ""
                 echo -e "Upon entering the next chamber, you are greeted by a talking 
-                        painting with a thick European accent.
+                        \npainting with a thick European accent.
                         \nDisregard females, acquire currency! 
-                        The painting says to you. It's none other than the famous 
+                        \nThe painting says to you. It's none other than the famous 
                         \nself portrait of 18th century French artist Jospeh Ducreux!
                         \n(a) Douse the painting in paint thinner
                         \n(b) Out-meme Ducreux --->\c"
@@ -298,10 +309,9 @@ function ducreux()
                                 echo "" 
                                 echo ""
                                 echo -e "I have acquired four score and 19 problems, but a wench cannot be 
-                                        counted among them,
-                                        \nsaid $name enthusastically to Deucreux!
+                                        \ncounted among them, said $name enthusastically to Deucreux!
                                         \nDucreux bows to you graciously accepting defeat, 
-                                        rewarding you with the key to the next chamber."
+                                        \nrewarding you with the key to the next chamber."
                                 echo ""
                                 read -p "Press enter to continue --->"
                         else clear 
@@ -312,7 +322,7 @@ function ducreux()
                                 echo "" 
                                 echo ""
                                 echo "$name stammers like a dummy. Ducruex, not impressed, 
-                                        orders $name to be placed in Facebook jail."
+                                        \norders $name to be placed in Facebook jail."
                                 exit
                         fi
                 ;;
@@ -327,7 +337,7 @@ function disastergirl ()
                 echo "" 
                 echo ""
                 echo -e "In the next chamber, the walls are covered in flames, 
-                        and only a single creepy little girl
+                        \nand only a single creepy little girl
                         \nstands in the center of the chamber with a devilish smirk on her face.
                         \nIt's Disaster Girl!
                         \n(a)Put out the fire and call CPS
@@ -345,9 +355,9 @@ function disastergirl ()
                                 echo "" 
                                 echo ""
                                 echo -e "$name extinguishes the fire as Disaster Girl 
-                                        is carried away screaming by CPS.
+                                        \nis carried away screaming by CPS.
                                         \nShe dropped the key to the next chamber as well 
-                                        as her book of matches. +1 modifier rewarded!"
+                                        \nas her book of matches. +1 modifier rewarded!"
                                 echo "" 
                                 read -p "Press enter to continue --->"
                         else clear 
@@ -370,7 +380,8 @@ function disastergirl ()
                                 echo "" 
                                 echo ""
                                 echo "$name pushes her in and catches the key as she falls 
-                                        in and dashes to the next door"
+                                        \nin and dashes to the next door"
+                                echo ""
                                 read -p "Press enter to continue --->"
                         else clear 
                                 gameover 
@@ -380,6 +391,7 @@ function disastergirl ()
                                 echo "" 
                                 echo ""
                                 echo "Disaster Girl smiles as the flames consume you"
+                                echo ""
                                 exit 
                         fi
                 ;;
@@ -411,7 +423,7 @@ function philosoraptor()
                                 echo ""
                                 echo -e "If someone doesn't like ghosts, does that make them wraithist?
                                         \nYou slain Philosorapter and stole his claw and the key to the 
-                                        final chamber +5 modifier rewarded"
+                                        \nfinal chamber +5 modifier rewarded"
                                 mod=$(($mod+5))
                                 echo "" 
                                 read -p "Press enter to continue --->"
@@ -501,6 +513,8 @@ function willsmith()
                 ;;
                 esac 
         }
+
+main_loop 
 
 #sequence the events in game
 
